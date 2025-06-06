@@ -1,0 +1,18 @@
+nome: CI Simples com Python
+
+em: [empurrar]
+
+empregos:
+  construir:
+    em execução: ubuntu-latest
+
+    passos:
+    - usos: ações/checkout@v3
+    - nome: Configurar Python
+      usos: ações/setup-python@v4
+      com:
+        versão python: 3.13.4
+    - nome: Instalar dependências
+      executar: pip install -r requirements.txt
+    - nome: Rodar os testículos
+      execute: pytest --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
