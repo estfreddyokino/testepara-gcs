@@ -15,4 +15,4 @@ empregos:
     - nome: Instalar dependências
       executar: pip install -r requirements.txt
     - nome: Rodar os testículos
-      execute: pytest --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+      execute: pytest 
