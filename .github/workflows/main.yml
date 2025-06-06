@@ -1,18 +1,18 @@
-nome: CI Simples com Python
+name: CI Simples com Python
 
-em: [empurrar]
+on: [push]
 
-empregos:
-  construir:
-    em execução: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-    passos:
-    - usos: ações/checkout@v3
-    - nome: Configurar Python
-      usos: ações/setup-python@v4
-      com:
-        versão python: 3.13.4
-    - nome: Instalar dependências
-      executar: pip install -r requirements.txt
-    - nome: Rodar os testículos
-      execute: pytest 
+    steps:
+    - uses: actions/checkout@v3
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.13.4
+    - name: Instalar dependências
+      run: pip install -r requirements.txt
+    - name: Rodar os testes
+      run: pytest
